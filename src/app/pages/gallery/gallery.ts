@@ -45,7 +45,7 @@ export class Gallery {
 
     for (let i = 1; i <= count; i++) {
       items.push({
-        src: `/images/${prefix}-${i}.webp`,
+        src: `images/${prefix}-${i}.webp`,
         title: `${label} ${i}`,
         alt: `${label} image ${i}`
       });

@@ -26,11 +26,11 @@
 
 .landing-hero {
   min-height: 100vh;
-  background:
-    url('/betta.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-overlay {
@@ -43,7 +43,26 @@
   text-align: center;
   padding: 90px 0;
 }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+}
 
+.landing-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
 .eyebrow,
 .section-label {
   display: inline-block;

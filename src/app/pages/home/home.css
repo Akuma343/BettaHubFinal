@@ -4,11 +4,9 @@
   color: var(--text);
 }
 
+/* HERO SECTION */
 .home-hero {
   min-height: 100vh;
-  background:
-    linear-gradient(rgba(6, 16, 27, 0.45), rgba(6, 16, 27, 0.65)),
-    url('/images/homebg2.jpg') center center / cover no-repeat;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--border);
@@ -16,14 +14,27 @@
   overflow: hidden;
 }
 
+/* HERO BACKGROUND IMAGE (FROM HTML) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* DARK OVERLAY */
 .home-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.45); /* improved readability */
   pointer-events: none;
+  z-index: 1;
 }
 
+/* CONTENT LAYER */
 .home-hero-overlay {
   position: relative;
   z-index: 2;
@@ -42,6 +53,7 @@
   padding-bottom: 4rem;
 }
 
+/* TEXT */
 .home-hero .eyebrow {
   display: inline-block;
   color: var(--accent);
@@ -56,7 +68,7 @@
   margin: 0 0 14px;
   font-size: clamp(3rem, 6vw, 5.3rem);
   line-height: 0.98;
-  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .hero-lead {
@@ -67,10 +79,12 @@
   color: #e2e2e2;
 }
 
+/* CTA */
 .hero-cta {
   justify-content: center;
 }
 
+/* STATS */
 .home-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -78,6 +92,7 @@
   margin-top: 1.5rem;
 }
 
+/* CARDS */
 .home-card h2 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -98,6 +113,7 @@
   color: var(--accent);
 }
 
+/* SHORTCUTS */
 .home-shortcuts {
   display: flex;
   flex-wrap: wrap;
@@ -112,7 +128,7 @@
   color: var(--accent);
   text-decoration: none;
   background: rgba(255, 255, 255, 0.02);
-  transition: border-color 200ms ease, transform 200ms ease, color 200ms ease;
+  transition: all 200ms ease;
 }
 
 .home-shortcuts a:hover {
@@ -120,12 +136,14 @@
   transform: translateY(-2px);
 }
 
+/* LOWER GRID */
 .home-lower-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   gap: 1.5rem;
 }
 
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .home-stats {
     grid-template-columns: repeat(3, minmax(0, 1fr));

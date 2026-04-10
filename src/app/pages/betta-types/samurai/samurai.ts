@@ -25,7 +25,7 @@ export class Samurai {
     {
       id: 1,
     name: 'Rare Black Shadow Samurai Halfmoon Betta Fish (Male)',
-      image: '/images/samurai-2.webp',
+      image: 'images/samurai-2.webp',
       shortDescription: 'A halfmoon samurai betta with strong contrast and wide tail.',
       fullDescription:
         'The Rare Black Shadow Samurai Halfmoon Betta Fish is a stunning exotic species originating from Thailand. It features a wide halfmoon tail and bold contrasting colors, making it a captivating centerpiece for any aquarium.',
@@ -35,7 +35,7 @@ export class Samurai {
     {
       id: 2,
       name: 'Rare Double Tail Blue Samurai Betta Fish (Male)',
-      image: '/images/samurai-3.webp',
+      image: 'images/samurai-3.webp',
       shortDescription: 'A double tail samurai betta with vibrant blue tones.',
       fullDescription:
         'The Rare Double Tail Blue Samurai Betta Fish features a unique double tail structure combined with vibrant blue coloration. Its balanced shape and bold tones create a distinctive and elegant look.',

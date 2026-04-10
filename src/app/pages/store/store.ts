@@ -19,7 +19,7 @@ export class Store {
   {
     id: 1,
     name: 'Aqua World',
-    image: '/images/aquaworld.jpg',
+    image: 'images/aquaworld.jpg',
     location: 'Manila, Philippines',
 
     shortDescription:
@@ -40,7 +40,7 @@ export class Store {
   {
     id: 2,
     name: 'Betta Haven',
-    image: '/images/bettahaven.jpg',
+    image: 'images/bettahaven.jpg',
     location: 'Cebu City, Philippines',
 
     shortDescription:
@@ -61,7 +61,7 @@ export class Store {
   {
     id: 3,
     name: 'Blue Life Hub',
-    image: '/images/bluelife.jpg',
+    image: 'images/bluelife.jpg',
     location: 'Davao City, Philippines',
 
     shortDescription:
