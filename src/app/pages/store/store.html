@@ -1,0 +1,172 @@
+<!-- =========================
+PAGE HERO
+========================= -->
+<section class="page-banner">
+  <div class="container">
+    <div class="page-hero-grid">
+      <div>
+        <p class="eyebrow">Store</p>
+        <h1>Find Betta Fish Stores & Supplies</h1>
+        <p class="lead">
+          Explore aquarium shops where you can find betta fish, tanks, food, and essential supplies.
+        </p>
+      </div>
+
+      <div class="hero-media-placeholder">
+        <img
+          src="/logo.jpg"
+          alt="Betta store"
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: 28px;"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+STORE GRID
+========================= -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">Aquarium Stores</p>
+      <h2>Recommended Betta Fish Shops</h2>
+      <p>Click “Learn More” to view details, map, and directions.</p>
+    </div>
+
+    <div class="row g-4">
+
+  <div
+    class="col-12 col-md-6 col-lg-4"
+    *ngFor="let store of stores"
+  >
+    <div class="card store-card h-100">
+
+      <!-- IMAGE -->
+      <div class="store-image">
+        <img [src]="store.image" [alt]="store.name" />
+      </div>
+
+      <!-- CONTENT -->
+      <div class="store-content">
+
+        <h3>{{ store.name }}</h3>
+
+        <p class="store-location">
+          <i class="bi bi-geo-alt"></i>
+          {{ store.location }}
+        </p>
+
+        <p class="store-desc">
+          {{ store.shortDescription }}
+        </p>
+
+        <!-- TAGS -->
+        <div class="store-tags">
+          <span *ngFor="let tag of store.tags">
+            {{ tag }}
+          </span>
+        </div>
+
+        <!-- BUTTON -->
+        <button
+          type="button"
+          class="bh-btn bh-btn-primary mt-2"
+          (click)="selectStore(store)"
+          data-bs-toggle="modal"
+          data-bs-target="#storeModal"
+        >
+          Learn More
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+  </div>
+</section>
+
+<!-- =========================
+STORE MODAL
+========================= -->
+<div
+  class="modal fade"
+  id="storeModal"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content store-modal-content">
+
+      <!-- HEADER -->
+      <div class="modal-header store-modal-header">
+        <h2 class="modal-title">
+          {{ selectedStore?.name }}
+        </h2>
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body store-modal-body">
+
+        <ng-container *ngIf="selectedStore">
+
+          <div class="store-modal-grid-clean">
+
+            <!-- LEFT: DETAILS -->
+            <div class="store-modal-left">
+
+              <p class="store-modal-tag">AQUARIUM STORE</p>
+
+              <h3 class="store-modal-title">
+                {{ selectedStore.name }}
+              </h3>
+
+              <p class="store-modal-desc">
+                {{ selectedStore.description }}
+              </p>
+
+              <p class="store-location">
+                <i class="bi bi-geo-alt"></i>
+                {{ selectedStore.location }}
+              </p>
+
+              <a
+                class="bh-btn bh-btn-primary mt-3"
+                [href]="selectedStore.googleMapsUrl"
+                target="_blank"
+              >
+                Get Directions
+              </a>
+
+            </div>
+
+            <!-- RIGHT: MAP ONLY -->
+            <div class="store-modal-right">
+
+              <div class="store-map-box">
+                <iframe
+                  [src]="selectedStore.safeMapUrl"
+                  loading="lazy"
+                  allowfullscreen>
+                </iframe>
+              </div>
+
+            </div>
+
+          </div>
+
+        </ng-container>
+
+      </div>
+
+    </div>
+  </div>
+</div>

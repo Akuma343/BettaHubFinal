@@ -1,0 +1,78 @@
+<section class="page-banner">
+  <div class="container">
+    <div class="page-hero-grid">
+      <div>
+        <p class="eyebrow">Register</p>
+        <h1>Create your BettaHub account</h1>
+        <p class="lead">
+          Join to organize your care guides and build a consistent feeding and
+          maintenance routine.
+        </p>
+      </div>
+
+      <div class="hero-media-placeholder">
+        <img
+          src="/logo.jpg"
+          alt="BettaHub register page"
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: 28px;"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-12 col-lg-7">
+        <div class="card form-card">
+          <form (submit)="$event.preventDefault(); register(name.value, email.value, password.value)">
+            <label>
+              Name
+              <input #name type="text" name="name" placeholder="Your name" required />
+            </label>
+
+            <label>
+              Email
+              <input #email type="email" name="email" placeholder="you@example.com" required />
+            </label>
+
+            <label>
+              Password
+              <input #password type="password" name="password" placeholder="Create a password" required />
+            </label>
+
+            <div class="cta-row wrap">
+              <button type="submit" class="bh-btn bh-btn-primary">Register</button>
+              <a routerLink="/" class="bh-btn bh-btn-secondary">Back to Home</a>
+            </div>
+
+            @if (errorMessage) {
+              <p class="error">{{ errorMessage }}</p>
+            }
+
+            @if (successMessage) {
+              <p class="success">{{ successMessage }}</p>
+            }
+          </form>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-5">
+        <div class="card prose-card">
+          <h2 style="margin: 0 0 0.9rem;">What you get</h2>
+          <p>
+            BettaHub keeps everything structured with clear sections and
+            consistent navigation so you always know where to go next.
+          </p>
+          <ul class="icon-list">
+            <li>Save your favorite guides (future)</li>
+            <li>Access types, colors, and gallery categories</li>
+            <li>Quick reminders for maintenance and water changes</li>
+          </ul>
+          <a routerLink="/login" class="text-link">Already have an account? Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

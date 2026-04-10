@@ -1,0 +1,42 @@
+<header class="site-header">
+  <div class="container nav-wrap">
+
+    <a routerLink="/" class="brand">BettaHub</a>
+
+    <button class="menu-toggle" (click)="menuOpen = !menuOpen">
+      ☰
+    </button>
+
+    <nav class="nav-links" [class.open]="menuOpen">
+
+      <!-- 🔥 AUTH LAYOUT (Landing + Login + Register) -->
+      @if (isAuthPage()) {
+
+        @if (!isLoggedIn()) {
+          <a routerLink="/login" class="nav-cta nav-cta-accent">Login</a>
+          <a routerLink="/register" class="nav-cta">Register</a>
+        } @else {
+          <a routerLink="/home" class="nav-cta nav-cta-accent">Go to App</a>
+        }
+
+      } @else {
+
+        <!-- 🔹 APP NAVIGATION -->
+        <a routerLink="/home" routerLinkActive="active">Home</a>
+        <a routerLink="/betta-types" routerLinkActive="active">Betta Types</a>
+        <a routerLink="/care-guides" routerLinkActive="active">Care Guides</a>
+        <a routerLink="/gallery" routerLinkActive="active">Gallery</a>
+        <a routerLink="/about" routerLinkActive="active">About</a>
+        <a routerLink="/contact" routerLinkActive="active">Contact</a>
+
+        @if (!isLoggedIn()) {
+          <a routerLink="/login" class="nav-cta nav-cta-accent">Login</a>
+        } @else {
+          <button class="nav-cta nav-logout" (click)="logout()">Logout</button>
+        }
+
+      }
+
+    </nav>
+  </div>
+</header>

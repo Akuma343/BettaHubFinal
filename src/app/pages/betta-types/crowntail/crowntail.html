@@ -1,0 +1,135 @@
+<section class="page-banner">
+  <div class="container">
+    <div class="page-hero-grid">
+      <div>
+        <p class="eyebrow">Betta Type</p>
+        <h1>Crowntail Betta Collection</h1>
+        <p class="lead">
+          Explore Crowntail Betta fish known for their spiky fins and unique
+          appearance. These fish stand out due to their reduced webbing and
+          sharp fin rays, giving them a crown-like look.
+        </p>
+      </div>
+
+      <div class="hero-media-placeholder">
+        <img
+          src="/images/crowntail-1.webp"
+          alt="Crowntail betta fish"
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: 28px;"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Crowntail Variants</p>
+      <h2>Featured Crowntail Betta Types</h2>
+      <p>
+        Discover different Crowntail Betta varieties with spiky fins and vibrant
+        color styles. Click any card to learn more.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (fish of crowntailFish; track fish.id) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card fish-card h-100">
+            <div class="fish-image">
+              <img
+                [src]="fish.image"
+                [alt]="fish.name"
+                (error)="fish.image = '/images/crowntail-1.webp'"
+              />
+            </div>
+
+            <div class="fish-card-body">
+              <div class="fish-meta">
+                <span class="fish-badge">Crowntail Betta</span>
+              </div>
+
+              <h3>{{ fish.name }}</h3>
+              <p class="fish-description">{{ fish.shortDescription }}</p>
+
+              <div class="fish-card-footer">
+                <button
+                  type="button"
+                  class="bh-btn bh-btn-primary"
+                  (click)="selectFish(fish)"
+                  data-bs-toggle="modal"
+                  data-bs-target="#crowntailFishModal"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<div
+  class="modal fade"
+  id="crowntailFishModal"
+  tabindex="-1"
+  aria-labelledby="crowntailFishModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content fish-modal-content">
+      @if (selectedFish) {
+        <div class="modal-header fish-modal-header">
+          <h2 class="modal-title" id="crowntailFishModalLabel">
+            {{ selectedFish.name }}
+          </h2>
+
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <div class="modal-body fish-modal-body">
+          <div class="row g-4 align-items-start">
+            <div class="col-12 col-lg-5">
+              <div class="fish-modal-image">
+                <img
+                  [src]="selectedFish.image"
+                  [alt]="selectedFish.name"
+                  (error)="selectedFish.image = '/images/crowntail-1.webp'"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-7">
+              <div class="fish-modal-info">
+                <p class="fish-modal-tag">Betta Profile</p>
+
+                <h3>{{ selectedFish.name }}</h3>
+
+                <p>{{ selectedFish.fullDescription }}</p>
+
+                <div class="fish-info-grid">
+                  <div class="fish-info-box">
+                    <span>Type</span>
+                    <strong>{{ selectedFish.type }}</strong>
+                  </div>
+
+                  <div class="fish-info-box">
+                    <span>Color Style</span>
+                    <strong>{{ selectedFish.colorStyle }}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

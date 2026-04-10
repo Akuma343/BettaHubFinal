@@ -1,0 +1,69 @@
+:host {
+  display: block;
+  color: var(--text);
+}
+
+.form-card,
+.prose-card {
+  padding: 1.5rem;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.45rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+input {
+  min-height: 52px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  padding: 0.85rem 1rem;
+  outline: none;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+input:focus {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.cta-row.wrap {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.error {
+  margin: 0.25rem 0 0;
+  color: #ff8f8f;
+}
+
+.prose-card h2 {
+  color: #fff;
+}
+
+.prose-card p,
+.prose-card li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 767.98px) {
+  .form-card,
+  .prose-card {
+    padding: 1.25rem;
+  }
+}

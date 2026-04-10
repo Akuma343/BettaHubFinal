@@ -1,0 +1,90 @@
+<footer class="site-footer">
+  <div class="footer-top-line"></div>
+
+  <div class="footer-shell">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="footer-logo-icon">🐠</span>
+          <span>BettaHub</span>
+        </div>
+
+        <p class="footer-description">
+          Your modern guide to betta fish care, beautiful varieties, and aquarium life.
+        </p>
+
+        <div class="footer-social">
+          <a routerLink="/" aria-label="Home">🏠</a>
+        </div>
+      </div>
+
+      <!-- 🔥 AUTH PAGES (Landing + Login + Register) -->
+      @if (isAuthPage()) {
+
+        <div class="footer-column">
+          <h4><span>🔐</span> Account</h4>
+          <nav class="footer-links">
+            <a routerLink="/login">Login</a>
+            <a routerLink="/register">Register</a>
+          </nav>
+        </div>
+
+      } @else {
+
+        <!-- 🔹 FULL FOOTER (APP PAGES) -->
+
+        <!-- Explore -->
+        <div class="footer-column">
+          <h4><span>✨</span> Explore</h4>
+          <nav class="footer-links">
+            <a routerLink="/home">Home</a>
+            <a routerLink="/betta-types">Betta Types</a>
+            <a routerLink="/care-guides">Care Guides</a>
+            <a routerLink="/gallery">Gallery</a>
+            <a routerLink="/store">Stores</a>
+          </nav>
+        </div>
+
+        <!-- Betta Types -->
+        <div class="footer-column">
+          <h4><span>🐟</span> Betta Types</h4>
+
+          <nav class="footer-links footer-links-grid">
+            <button (click)="goTo('/betta-types')" class="footer-link-btn">All Types</button>
+            <button (click)="goTo('/betta-types/alien')" class="footer-link-btn">Alien</button>
+            <button (click)="goTo('/betta-types/avatar')" class="footer-link-btn">Avatar</button>
+            <button (click)="goTo('/betta-types/crowntail')" class="footer-link-btn">Crowntail</button>
+            <button (click)="goTo('/betta-types/dragon')" class="footer-link-btn">Dragon</button>
+            <button (click)="goTo('/betta-types/dumbo')" class="footer-link-btn">Dumbo</button>
+            <button (click)="goTo('/betta-types/giant')" class="footer-link-btn">Giant</button>
+            <button (click)="goTo('/betta-types/halfmoon')" class="footer-link-btn">Halfmoon</button>
+            <button (click)="goTo('/betta-types/koi')" class="footer-link-btn">Koi</button>
+            <button (click)="goTo('/betta-types/plakat')" class="footer-link-btn">Plakat</button>
+            <button (click)="goTo('/betta-types/samurai')" class="footer-link-btn">Samurai</button>
+            <button (click)="goTo('/betta-types/veiltail')" class="footer-link-btn">Veiltail</button>
+            <button (click)="goTo('/betta-types/wild')" class="footer-link-btn">Wild</button>
+          </nav>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-column">
+          <h4><span>📌</span> Support</h4>
+          <nav class="footer-links">
+            <a routerLink="/faq">FAQ</a>
+            <a routerLink="/about">About</a>
+            <a routerLink="/contact">Contact</a>
+          </nav>
+        </div>
+
+      }
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 BettaHub. All rights reserved.</p>
+      <p>WST101 Project • Designed with care</p>
+    </div>
+  </div>
+</footer>

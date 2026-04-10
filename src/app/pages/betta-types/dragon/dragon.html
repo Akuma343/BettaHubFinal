@@ -1,0 +1,146 @@
+<section class="page-banner">
+  <div class="container">
+    <div class="page-hero-grid">
+      <div>
+        <p class="eyebrow">Betta Type</p>
+        <h1>Dragon Betta Collection</h1>
+        <p class="lead">
+          Discover Dragon Betta fish known for their thick metallic scales and
+          bold color combinations. These fish are admired for their strong,
+          armor-like appearance and vibrant patterns.
+        </p>
+      </div>
+
+      <div class="hero-media-placeholder">
+        <img
+          src="/images/dragon-1.webp"
+          alt="Dragon betta fish"
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: 28px;"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Dragon Betta Variants</p>
+      <h2>Featured Dragon Betta Types</h2>
+      <p>
+        Explore different Dragon Betta varieties with unique metallic scales and
+        striking color styles. Click any card to learn more about each fish.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (fish of dragonFish; track fish.id) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card fish-card h-100">
+
+            <div class="fish-image">
+              <img
+                [src]="fish.image"
+                [alt]="fish.name"
+                (error)="fish.image = '/images/dragon-1.webp'"
+              />
+            </div>
+
+            <div class="fish-card-body">
+              <div class="fish-meta">
+                <span class="fish-badge">Dragon Betta</span>
+              </div>
+
+              <h3>{{ fish.name }}</h3>
+              <p class="fish-description">
+                {{ fish.shortDescription }}
+              </p>
+
+              <div class="fish-card-footer">
+                <button
+                  type="button"
+                  class="bh-btn bh-btn-primary"
+                  (click)="selectFish(fish)"
+                  data-bs-toggle="modal"
+                  data-bs-target="#dragonFishModal"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="dragonFishModal"
+  tabindex="-1"
+  aria-labelledby="dragonFishModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content fish-modal-content">
+      @if (selectedFish) {
+
+        <div class="modal-header fish-modal-header">
+          <h2 class="modal-title" id="dragonFishModalLabel">
+            {{ selectedFish.name }}
+          </h2>
+
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <div class="modal-body fish-modal-body">
+          <div class="row g-4 align-items-start">
+
+            <div class="col-12 col-lg-5">
+              <div class="fish-modal-image">
+                <img
+                  [src]="selectedFish.image"
+                  [alt]="selectedFish.name"
+                  (error)="selectedFish.image = '/images/dragon-1.webp'"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-7">
+              <div class="fish-modal-info">
+                <p class="fish-modal-tag">Betta Profile</p>
+
+                <h3>{{ selectedFish.name }}</h3>
+
+                <p>
+                  {{ selectedFish.fullDescription }}
+                </p>
+
+                <div class="fish-info-grid">
+                  <div class="fish-info-box">
+                    <span>Type</span>
+                    <strong>{{ selectedFish.type }}</strong>
+                  </div>
+
+                  <div class="fish-info-box">
+                    <span>Color Style</span>
+                    <strong>{{ selectedFish.colorStyle }}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      }
+    </div>
+  </div>
+</div>

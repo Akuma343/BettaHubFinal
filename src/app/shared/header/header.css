@@ -1,0 +1,125 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(5, 17, 28, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0;
+}
+
+/* Logo */
+.brand {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+}
+
+/* Buttons */
+.nav-cta {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+}
+
+.nav-cta-accent {
+  background: rgba(88, 209, 201, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Mobile */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.4rem 0.6rem;
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #08131f;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+/* User text */
+.nav-user {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-right: 0.4rem;
+}
+
+/* Logout button */
+.nav-logout {
+  background: rgba(255, 141, 161, 0.12);
+  border-color: rgba(255, 141, 161, 0.4);
+  color: var(--accent-2);
+}
+
+.nav-logout:hover {
+  background: rgba(255, 141, 161, 0.2);
+  border-color: var(--accent-2);
+  color: #fff;
+}
+
+/* Slight polish */
+.nav-links a,
+.nav-cta {
+  transition: all 0.2s ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+}
+
+/* Better mobile dropdown */
+@media (max-width: 768px) {
+  .nav-links {
+    border-top: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+  }
+}

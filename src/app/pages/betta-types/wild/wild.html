@@ -1,0 +1,136 @@
+<section class="page-banner">
+  <div class="container">
+    <div class="page-hero-grid">
+      <div>
+        <p class="eyebrow">Betta Type</p>
+        <h1>Wild Betta Collection</h1>
+        <p class="lead">
+          Explore Wild Betta fish known for their natural origins, unique
+          coloration, and rare regional variations. These fish showcase a more
+          natural and distinctive beauty compared to many domesticated forms.
+        </p>
+      </div>
+
+      <div class="hero-media-placeholder">
+        <img
+          src="/images/wild-1.webp"
+          alt="Wild betta fish"
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: 28px;"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Wild Betta Variants</p>
+      <h2>Featured Wild Betta Types</h2>
+      <p>
+        Discover wild and hybrid wild betta varieties with natural patterns,
+        metallic tones, and rare regional beauty. Click any card to learn more.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (fish of wildFish; track fish.id) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card fish-card h-100">
+            <div class="fish-image">
+              <img
+                [src]="fish.image"
+                [alt]="fish.name"
+                (error)="fish.image = '/images/wild-1.webp'"
+              />
+            </div>
+
+            <div class="fish-card-body">
+              <div class="fish-meta">
+                <span class="fish-badge">Wild Betta</span>
+              </div>
+
+              <h3>{{ fish.name }}</h3>
+              <p class="fish-description">{{ fish.shortDescription }}</p>
+
+              <div class="fish-card-footer">
+                <button
+                  type="button"
+                  class="bh-btn bh-btn-primary"
+                  (click)="selectFish(fish)"
+                  data-bs-toggle="modal"
+                  data-bs-target="#wildFishModal"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<div
+  class="modal fade"
+  id="wildFishModal"
+  tabindex="-1"
+  aria-labelledby="wildFishModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content fish-modal-content">
+      @if (selectedFish) {
+        <div class="modal-header fish-modal-header">
+          <h2 class="modal-title" id="wildFishModalLabel">
+            {{ selectedFish.name }}
+          </h2>
+
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="modal-body fish-modal-body">
+          <div class="row g-4 align-items-start">
+            <div class="col-12 col-lg-5">
+              <div class="fish-modal-image">
+                <img
+                  [src]="selectedFish.image"
+                  [alt]="selectedFish.name"
+                  (error)="selectedFish.image = '/images/wild-1.webp'"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-7">
+              <div class="fish-modal-info">
+                <p class="fish-modal-tag">Betta Profile</p>
+
+                <h3>{{ selectedFish.name }}</h3>
+
+                <p>{{ selectedFish.fullDescription }}</p>
+
+                <div class="fish-info-grid">
+                  <div class="fish-info-box">
+                    <span>Type</span>
+                    <strong>{{ selectedFish.type }}</strong>
+                  </div>
+
+                  <div class="fish-info-box">
+                    <span>Color Style</span>
+                    <strong>{{ selectedFish.colorStyle }}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

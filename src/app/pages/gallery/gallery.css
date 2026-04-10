@@ -1,0 +1,132 @@
+:host {
+  display: block;
+  color: var(--text);
+}
+
+.gallery-toolbar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.gallery-note {
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(16, 38, 59, 0.95);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(88, 209, 201, 0.45);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5, 17, 28, 0.88) 0%,
+    rgba(5, 17, 28, 0.18) 45%,
+    rgba(5, 17, 28, 0.03) 100%
+  );
+  pointer-events: none;
+}
+
+.gallery-caption {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.9rem;
+  z-index: 1;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.gallery-modal {
+  background: rgba(8, 19, 31, 0.98);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.gallery-modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(16, 38, 59, 0.95);
+  color: var(--text);
+}
+
+.gallery-modal-body {
+  padding: 1rem;
+  background: rgba(8, 19, 31, 0.98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.gallery-modal-image {
+  display: block;
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+@media (max-width: 992px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-caption {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
